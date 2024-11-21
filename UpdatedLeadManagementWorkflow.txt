@@ -1,0 +1,59 @@
+
+### Updated Lead Management Workflow: Handling Edge Cases
+
+#### Overview
+This workflow has been enhanced to address key edge cases: handling incomplete data, ensuring high-value leads are managed effectively, and accommodating leads from different time zones.
+
+#### Workflow Steps
+
+1. **Google Forms (Trigger)**:
+   - Captures new lead submissions.
+
+2. **Filter by Zapier (Action)**: Handle Incomplete Data
+   - Checks for missing or incomplete fields (e.g., Company Size, Budget, Industry, Urgency). 
+   - If fields are missing:
+     - Sends an email to the lead asking them to update their details.
+
+3. **Code by Zapier (Action)**: Calculate Lead Score
+   - Runs the JavaScript script to compute the lead score.
+
+4. **Filter by Zapier (Action)**: High-Value Leads
+   - Filters leads with a score greater than 85 for priority handling.
+
+5. **Slack or Gmail (Action)**: Notify Sales Team
+   - Sends a notification with lead details for immediate follow-up.
+
+6. **Google Sheets (Action)**: Save Leads
+   - Adds all leads to a Google Sheets database.
+   - High-value leads are added to a "Priority Leads" tab.
+
+7. **Formatter by Zapier (Action)**: Handle Time Zones
+   - Extracts time zone from the lead’s location or email domain (if available).
+   - Uses the "Delay by Zapier" step to schedule actions based on the lead's local business hours.
+
+8. **Gmail (Action)**: Schedule Emails
+   - Sends a welcome email or follow-up at the lead's local business hours.
+
+#### Key Updates to Address Edge Cases
+
+1. **Handling Incomplete Data**:
+   - Adds a filter to identify incomplete submissions.
+   - Sends automated emails to request missing data.
+
+2. **Ensuring High-Value Leads Are Properly Managed**:
+   - Filters high-value leads (score > 85).
+   - Notifies the sales team for immediate action and flags leads in a "Priority Leads" tab.
+
+3. **Accommodating Different Time Zones**:
+   - Extracts time zone data from submission details.
+   - Schedules emails and follow-ups at optimal times using "Delay by Zapier."
+
+#### Testing and Validation
+- Test incomplete data handling by submitting forms with missing fields.
+- Verify high-value leads are notified to the sales team and saved in the "Priority Leads" tab.
+- Validate time zone detection and scheduled email delivery based on test lead data.
+
+#### Next Steps
+- Deploy the updated Zap and validate its performance with live data.
+- Monitor for any new edge cases and iteratively improve the workflow.
+
